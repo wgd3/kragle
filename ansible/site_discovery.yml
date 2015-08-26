@@ -6,10 +6,6 @@
     - dhcp-server
 
   tasks:
-    - name: Create SSH Key Pair for root user
-      user:
-        name: root
-        generate_ssh_key: yes
 
     - name: Check for local copy of Hanlon Microkernel
       stat:

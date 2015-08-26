@@ -1,4 +1,9 @@
 ---
+#Kragle common vars
+auto_deploy_node: 172.17.16.10
+hanlon_base_url: http://{{ auto_deploy_node }}:8026/hanlon/api/v1/
+dns1: 192.168.70.3
+
 # Kragle site_discovery vars
 pxe_subnet_name: 172.17.16.0
 pxe_subnet_mask: 255.255.255.0

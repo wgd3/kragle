@@ -15,5 +15,5 @@
 - name: enable dhcpd service
   service:
     name: dhcpd
-    state: running
+    state: started
     enabled: true

@@ -1,0 +1,19 @@
+---
+- name: install dhcp server package
+  yum:
+    name: dhcp
+    state: present
+
+- name: setup dhcpd.conf
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+    mode: 644
+  notify:
+  - restart dhcpd
+
+- name: enable dhcpd service
+  service:
+    name: dhcpd
+    state: started
+    enabled: true

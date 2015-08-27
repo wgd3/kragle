@@ -1,0 +1,18 @@
+---
+#Kragle common vars
+auto_deploy_node: 172.17.16.10
+hanlon_base_url: http://{{ auto_deploy_node }}:8026/hanlon/api/v1/
+dns1: 192.168.70.3
+
+# Kragle site_discovery vars
+pxe_subnet_name: 172.17.16.0
+pxe_subnet_mask: 255.255.255.0
+pxe_gateway: 172.17.16.1
+pxe_dhcp_range_start: 172.17.16.20
+pxe_dhcp_range_end: 172.17.16.50
+domain_name: lordbusiness
+
+hnl_mk_image: hnl_mk_debug-image.2.0.1.iso
+hnl_mk_source: https://github.com/csc/Hanlon-Microkernel/releases/download/v2.0.1/
+hnl_mk_local_path: /opt/hanlon/image/
+hnl_mk_path: /home/hanlon/image/{{ hnl_mk_image }}

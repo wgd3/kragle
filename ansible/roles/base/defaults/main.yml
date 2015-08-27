@@ -1,2 +1,3 @@
 ---
 # defaults file for base
+ntp_timezone: America/New_York

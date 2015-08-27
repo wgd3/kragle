@@ -37,9 +37,9 @@
     state: directory
 
 - name: Create SSH Key Pair for root user
-      user:
-        name: root
-        generate_ssh_key: yes
+  user:
+    name: root
+    generate_ssh_key: yes
 
 - name: copy .ssh/config
   copy:

@@ -100,6 +100,7 @@
     accept_hostkey: yes
   ignore_errors: true
   with_items:
-    - { name: "wiley", repo: "git://github.com/csc/wiley" }
+# Wiley is currently a private repo
+#    - { name: "wiley", repo: "git://github.com/csc/wiley" }
     - { name: "slimer", repo: "git://github.com/csc/slimer" }
     - { name: "ansible-scaleio", repo: "git://github.com/csc/ansible-scaleio" }

@@ -16,13 +16,9 @@
     - wget
     - docker
     - python-pip
+    - python-passlib
     - sshpass
     - iptables-services
-    - libvirt
-    - libvirt-client
-    - libvirt-python
-    - qemu-img
-    - qemu-kvm
     - bridge-utils
 
 - name: install docker-py

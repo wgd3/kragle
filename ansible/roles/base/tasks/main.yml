@@ -101,10 +101,8 @@
   local_action:
     module: git
     repo: "{{ item.item.repo }}"
-    dest: "{{ item.item.name }}"
+    dest: "/root/{{ item.item.name }}"
     accept_hostkey: yes
     version: "{{ item.json[0].name }}"
   ignore_errors: true
   with_items: tags.results
-
-    

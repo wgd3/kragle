@@ -89,14 +89,18 @@
     - ntpd
     - docker
 
+- name: get latest tags
+  uri:
+    url: "{{ item.tag }}"
+    method: GET
+  with_items: git_repos
+  register: tags
+
 - name: clone repos from git
   git:
-    repo: "{{ item.repo }}"
-    dest: "/root/{{ item.name }}"
+    repo: "{{ item.item.repo }}"
+    dest: "/root/{{ item.item.name }}"
     accept_hostkey: yes
+    version: "{{ item.json[0].name }}"
   ignore_errors: true
-  with_items:
-# Wiley is currently a private repo
-#    - { name: "wiley", repo: "git://github.com/csc/wiley" }
-    - { name: "slimer", repo: "git://github.com/csc/slimer" }
-    - { name: "ansible-scaleio", repo: "git://github.com/csc/ansible-scaleio" }
+  with_items: tags.results

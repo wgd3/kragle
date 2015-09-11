@@ -90,16 +90,14 @@
     - docker
 
 - name: get latest tags
-  local_action:
-    module: uri
+  uri:
     url: "{{ item.tag }}"
     method: GET
   with_items: git_repos
   register: tags
 
 - name: clone repos from git
-  local_action:
-    module: git
+  git:
     repo: "{{ item.item.repo }}"
     dest: "/root/{{ item.item.name }}"
     accept_hostkey: yes

@@ -1,11 +1,13 @@
 {
+  "variables": {
+     "submgr_username": "",
+     "submgr_password": ""
+  },
   "provisioners": [{
     "type": "ansible-local",
     "playbook_file": "/opt/kragle/ansible/main-with-packer.yml",
     "playbook_paths": [
-	    "/opt/kragle/ansible/main-with-packer.yml",
-	    "/opt/kragle/ansible/site_docker.yml",
-	    "/opt/kragle/ansible/site_discovery.yml"]
+	    "/opt/kragle/ansible/"],
     "role_paths": [
         "/opt/kragle/ansible/roles/base",
         "/opt/kragle/ansible/roles/kragle-packer",
@@ -29,7 +31,7 @@
       "ssh_host_port_min": 2222,
       "ssh_host_port_max": 2229,
       "ssh_username": "root",
-      "ssh_password": "wileyfuse",
+      "ssh_password": "changeme",
       "ssh_port": 22,
       "ssh_wait_timeout": "90m",
       "net_device": "virtio-net",

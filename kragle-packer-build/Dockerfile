@@ -16,7 +16,7 @@ RUN mkdir /opt/packer \
   && unzip packer.zip
 
 RUN cd /opt \
-  && git clone https://github.com/csc/kragle.git
+  && git clone https://github.com/jcpowermac/kragle.git -b support_packer_image
 
 EXPOSE 5900
 WORKDIR /build

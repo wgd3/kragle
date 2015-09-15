@@ -1,9 +1,10 @@
 ---
-- name: Setup kragle
+- name: Base configure kragle
   hosts: all
   gather_facts: true
   roles:
     - base
     - kragle-packer
-    - site_docker.yml 
-    - site_discovery.yml 
+
+- include: site_docker.yml 
+- include: site_discovery.yml 

@@ -2,6 +2,10 @@
   "provisioners": [{
     "type": "ansible-local",
     "playbook_file": "/opt/kragle/ansible/main-with-packer.yml",
+    "playbook_paths": [
+	    "/opt/kragle/ansible/main-with-packer.yml",
+	    "/opt/kragle/ansible/site_docker.yml",
+	    "/opt/kragle/ansible/site_discovery.yml"]
     "role_paths": [
         "/opt/kragle/ansible/roles/base",
         "/opt/kragle/ansible/roles/kragle-packer",
@@ -17,7 +21,7 @@
       "shutdown_command": "shutdown -P now",
       "disk_size": 10140,
       "format": "qcow2",
-      "headless": false,
+      "headless": true,
       "accelerator": "kvm",
       "http_directory": "kickstart-files",
       "http_port_min": 10082,

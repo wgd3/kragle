@@ -5,7 +5,7 @@
     "role_paths": [
         "/opt/kragle/ansible/roles/base",
         "/opt/kragle/ansible/roles/kragle-packer",
-    	"/opt/kragle/ansible/dhcp-server"]
+    	"/opt/kragle/ansible/roles/dhcp-server"]
   }],
   "builders": [{
       "name": "kragle-qcow2",

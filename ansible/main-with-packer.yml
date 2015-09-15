@@ -4,5 +4,6 @@
   gather_facts: true
   roles:
     - base
-    - { role: bridge, use_packer: true }
     - kragle-packer
+    - site_docker.yml 
+    - site_discovery.yml 

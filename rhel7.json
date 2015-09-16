@@ -2,7 +2,7 @@
   "provisioners": [{
     "type": "ansible-local",
     "extra_arguments": [
-	    "packer=true"],
+	    "--extra-vars \"packer=true\""],
     "playbook_file": "/opt/kragle/ansible/main-with-packer.yml",
     "playbook_dir": "/opt/kragle/ansible/",
     "inventory_file": "/opt/kragle/ansible/inventory/hosts.ini",
@@ -19,13 +19,14 @@
       "iso_checksum_type": "sha256",
       "iso_checksum": "3685468ec6cdcb70dfc85ebbc164da427dc2d762644c3c2ee1520f4f661c15ce",
       "iso_url": "/build/os/rhel-server-7.1-x86_64-dvd.iso",
+      "output_directory": "/build/output/"
       "ssh_wait_timeout": "30s",
       "shutdown_command": "shutdown -P now",
       "disk_size": 10140,
       "format": "qcow2",
       "headless": true,
       "accelerator": "kvm",
-      "http_directory": "kickstart-files",
+      "http_directory": "/opt/kragle/kickstart-files",
       "http_port_min": 10082,
       "http_port_max": 10089,
       "ssh_host_port_min": 2222,

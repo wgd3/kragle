@@ -18,8 +18,10 @@ RUN mkdir /opt/packer \
 RUN cd /opt \
   && git clone https://github.com/jcpowermac/kragle.git -b support_packer_image
 
+COPY docker-entrypoint.py /docker-entrypoint.py
+
 EXPOSE 5900
 WORKDIR /build
-ENTRYPOINT ["/opt/packer/packer"]
+ENTRYPOINT ["./docker-entrypoint.py"]
 CMD ["--help"]
 

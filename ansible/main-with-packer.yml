@@ -6,5 +6,7 @@
     - base
     - kragle-packer
 
-- include: /tmp/packer-provisioner-ansible-local/playbooks/site_docker.yml 
-- include: /tmp/packer-provisioner-ansible-local/playbooks/site_discovery.yml 
+- include: /tmp/packer-provisioner-ansible-local/site_docker.yml 
+- include: /tmp/packer-provisioner-ansible-local/site_discovery.yml 
+  vars:
+    packer: true 

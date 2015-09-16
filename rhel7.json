@@ -6,8 +6,10 @@
   "provisioners": [{
     "type": "ansible-local",
     "playbook_file": "/opt/kragle/ansible/main-with-packer.yml",
-    "playbook_paths": [
-	    "/opt/kragle/ansible/"],
+    "playbook_dir": "/opt/kragle/ansible/",
+    "inventory_file": "/opt/kragle/ansible/inventory/hosts.ini",
+    "group_vars": "/opt/kragle/ansible/inventory/group_vars",
+    "inventory_file": "/opt/kragle/ansible/inventory/hosts.ini",
     "role_paths": [
         "/opt/kragle/ansible/roles/base",
         "/opt/kragle/ansible/roles/kragle-packer",

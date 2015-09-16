@@ -22,6 +22,6 @@ COPY docker-entrypoint.py /docker-entrypoint.py
 
 EXPOSE 5900
 WORKDIR /build
-ENTRYPOINT ["./docker-entrypoint.py"]
+ENTRYPOINT ["/docker-entrypoint.py"]
 CMD ["--help"]
 

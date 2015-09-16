@@ -1,10 +1,8 @@
 {
-  "variables": {
-     "submgr_username": "",
-     "submgr_password": ""
-  },
   "provisioners": [{
     "type": "ansible-local",
+    "extra_arguments": [
+	    "packer=true"],
     "playbook_file": "/opt/kragle/ansible/main-with-packer.yml",
     "playbook_dir": "/opt/kragle/ansible/",
     "inventory_file": "/opt/kragle/ansible/inventory/hosts.ini",

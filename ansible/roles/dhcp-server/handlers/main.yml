@@ -3,3 +3,4 @@
   service:
     name: dhcpd
     state: restarted
+  when: not packer

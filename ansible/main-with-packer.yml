@@ -1,8 +1,12 @@
 ---
-- name: Setup kragle
+- name: Base configure kragle
   hosts: all
   gather_facts: true
   roles:
     - base
-    - { role: bridge, use_packer: true }
     - kragle-packer
+
+- include: /tmp/packer-provisioner-ansible-local/site_docker.yml 
+- include: /tmp/packer-provisioner-ansible-local/site_discovery.yml 
+  vars:
+    packer: true 

@@ -17,3 +17,5 @@
     name: dhcpd
     state: started
     enabled: true
+  when: not packer
+  

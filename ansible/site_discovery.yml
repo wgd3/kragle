@@ -2,6 +2,8 @@
 # This playbook sets up the environment for discovery of all nodes
 - name: Configure deployment node for site discovery
   hosts: localhost
+  vars:
+    packer: false
   roles:
     - dhcp-server
 
@@ -23,6 +25,7 @@
         base_url: "{{ hanlon_base_url }}"
         type: mk
         path: "{{ hnl_mk_path }}"
+      when: not packer
 
     - name: Add a Discover Only Model to Hanlon
       hanlon_model:
@@ -30,6 +33,7 @@
         template: discover_only
         label: discover_only_model
       register: model
+      when: not packer
 
     - name: Add a Discover Only Policy to Hanlon
       hanlon_policy:
@@ -38,3 +42,4 @@
         label: discover_only_policy
         model_uuid: "{{ model.uuid }}"
         is_default: true
+      when: not packer

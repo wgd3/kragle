@@ -1,17 +1,11 @@
 ---
 language: python
 python: "2.7"
-
-before_install:
-  # Make sure everything's up to date.
-  - sudo apt-get update -qq
+sudo: false
 
 install:
   # Install Ansible.
   - pip install ansible
-
-  # Add ansible.cfg to pick up roles path.
-  #- "printf '[defaults]\nroles_path = ../' > ansible.cfg"
 
 script:
   - cd ansible && python travis_parse_yaml.py main.yml site_discovery.yml site_docker.yml

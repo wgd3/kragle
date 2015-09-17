@@ -14,4 +14,4 @@ install:
   #- "printf '[defaults]\nroles_path = ../' > ansible.cfg"
 
 script:
-  - python travis_parse_yaml.py ansible/main.yml ansible/site_discovery.yml ansible/site_docker.yml
+  - cd ansible && python travis_parse_yaml.py main.yml site_discovery.yml site_docker.yml

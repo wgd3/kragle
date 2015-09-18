@@ -9,15 +9,6 @@
     docker_api_version: 1.18
 
   tasks:
-    - name: Ansible Docker Requirements
-      pip:
-        name: "{{ item }}"
-        extra_args: "-I"
-      with_items:
-      - six==1.4.1
-      - docker-py==1.1.0
-      - requests==2.7.0
-
     - name: Clean up existing containers
       docker:
         docker_api_version: "{{ docker_api_version }}"
@@ -35,7 +26,7 @@
         docker_api_version: "{{ docker_api_version }}"
         name: hanlon-mongo
         image: mongo
-        pull: always
+        pull: missing
         state: started
         command: mongod --smallfiles
         volumes: "{{ hanlon_resource }}/data/db:/data/db"
@@ -45,7 +36,7 @@
 #        docker_api_version: "{{ docker_api_version }}"
 #        name: hanlon-cassandra
 #        image: tobert/cassandra
-#        pull: always
+#        pull: missing
 #        state: started
 #        volumes: "{{ hanlon_resource }}/data/db:/data"
 #
@@ -66,7 +57,7 @@
         docker_api_version: "{{ docker_api_version }}"
         name: hanlon-server
         image: cscdock/hanlon
-        pull: always
+        pull: missing
         state: started
         ports: 8026:8026
 #        links: hanlon-cassandra:cassandra
@@ -94,7 +85,7 @@
         docker_api_version: "{{ docker_api_version }}"
         name: hanlon-atftpd
         image: cscdock/atftpd
-        pull: always
+        pull: missing
         state: started
         ports: 69:69/udp
         links: hanlon-server:hanlon

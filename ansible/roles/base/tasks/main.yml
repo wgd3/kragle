@@ -10,16 +10,17 @@
     pkg: "{{ item }}"
     state: present
   with_items:
-    - ntp
-    - vim
-    - dhcp
-    - wget
-    - docker
-    - python-pip
-    - python-passlib
-    - sshpass
-    - iptables-services
     - bridge-utils
+    - dhcp
+    - docker
+    - ipmitool
+    - iptables-services
+    - ntp
+    - python-passlib
+    - python-pip
+    - sshpass
+    - vim
+    - wget
 
 - name: install docker-py
   pip:

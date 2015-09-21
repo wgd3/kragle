@@ -21,15 +21,15 @@ The container has been pre-installed with the necessary software to execute the 
 ### Build Process
 The following steps will build the container if you do not use the one that should be available on the Docker Registry.
 
-1. Clone project: `git clone https://github.com/csc/kragle; cd kragle`
-2. Build container: `docker build -t kragle .`
+1. `git clone https://github.com/csc/kragle; cd kragle` - Clone project from github and change directory to kragle.
+2. `docker build -t kragle .` - build container.
 
 Once the container is built we can continue with using Packer to build the qcow2 image of the Kragle node.
 
 ### Prerequisites
-1. `mkdir -p path/os` - Create a folder where the RHEL 7.1 ISO will be available for use in the container and Packer -
-2. `cp rhel-server-7.1-x86_64-dvd.iso path/os` - Copy the RHEL 7.1 DVD as-is, the filename should be -  
-3. `chcon -Rt svirt_sandbox_file_t path` - Set the SELinux context on the folder.
+1. `mkdir -p path/os` - Create a folder where the RHEL 7.1 ISO will be available for use in the container and Packer.
+2. `cp rhel-server-7.1-x86_64-dvd.iso path/os` - Copy the RHEL 7.1 DVD as-is.
+3. `chcon -Rt svirt_sandbox_file_t path` - Set the SELinux context on the directory.
 
 ## Container Execution and Image Build
 
@@ -55,7 +55,7 @@ The `--packer` option is the command line arguments that need to be passed to ex
 
 **NOTE:** Do not connect via VNC until Packer has outputted `Waiting for SSH to become available...` otherwise the build will fail.
 
-#### Command line
+#### Example
 ```bash
 docker run \
 --rm \

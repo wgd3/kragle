@@ -26,14 +26,18 @@ The following steps will build the container if you do not use the one that shou
 
 Once the container is built we can continue with using Packer to build the qcow2 image of the Kragle node.
 
+
+
+## Container Execution and Image Build
+
 ### Prerequisites
 1. `mkdir -p path/os` - Create a folder where the RHEL 7.1 ISO will be available for use in the container and Packer.
 2. `cp rhel-server-7.1-x86_64-dvd.iso path/os` - Copy the RHEL 7.1 DVD as-is.
 3. `chcon -Rt svirt_sandbox_file_t path` - Set the SELinux context on the directory.
 
-## Container Execution and Image Build
+### Docker execution arguments
 
-To execute a virtual machine and Packer in the container the following required options need to be set:
+To execute a virtual machine in the container the following required options need to be set:
 - [Privileged mode](https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-and-lxc-configuration) (`--privileged=true`)
 - [Docker Volumes](https://docs.docker.com/userguide/dockervolumes/)
   - KVM device (`-v /dev/kvm:/dev/kvm:rw`)
@@ -47,7 +51,7 @@ There are two optional parameters:
 - [Clean up](https://docs.docker.com/reference/run/#clean-up-rm)
   - `--rm` deletes the container after Packer is complete.  
 
-#### Docker Entrypoint parameters
+#### Entrypoint arguments
 The `--username` and `--password` options are used for Red Hat Subscription Manage.  
 The `--packer` option is the command line arguments that need to be passed to execute a proper build.
 
@@ -81,7 +85,7 @@ Before getting started lets install `qemu-img` via `yum install qemu-img -y`
 qemu-img convert -O raw packer-kragle-qcow2 kragle.raw
 ```
 
-### Process for phyiscal hardware
+### Process for physical hardware
 
 Below is an example of `dd` required command line options and execution.  First you will need to run `fdisk -l` to determine which disk you would like to write the image to and replace `of=/dev/vda` with that device name.  
 

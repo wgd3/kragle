@@ -15,24 +15,23 @@ The Packer-based build process of kragle provides an automated method of buildin
 ### Contents
 The container has been pre-installed with the necessary software to execute the build process.
 - Packer (Latest tagged release)
-- `docker-entrypoint.py` (python and required libraries)
-- QEMU which is used to create KVM-based virtual machine (required and used by Packer to automate the build process)
+- `docker-entrypoint.py` (Python and required libraries)
+- QEMU - which is used to create KVM-based virtual machine (required and used by Packer to automate the build process)
 
 ### Build Process
 The following steps will build the container if you do not use the one that should be available on the Docker Registry.
 
-1. Clone project `git clone https://github.com/csc/kragle`
-2. `cd kragle`
-3. `docker build -t kragle .`
+1. Clone project: `git clone https://github.com/csc/kragle; cd kragle`
+2. Build container: `docker build -t kragle .`
 
 Once the container is built we can continue with using Packer to build the qcow2 image of the Kragle node.
 
 ### Prerequisites
-1. Create a folder where the RHEL 7.1 ISO will be available for use in the container and Packer - `mkdir -p path/os`
-2. Copy the RHEL 7.1 DVD as-is, the filename should be -  `rhel-server-7.1-x86_64-dvd.iso`
-3. Set the SELinux context on the folder - `chcon -Rt svirt_sandbox_file_t path`
+1. `mkdir -p path/os` - Create a folder where the RHEL 7.1 ISO will be available for use in the container and Packer -
+2. `cp rhel-server-7.1-x86_64-dvd.iso path/os` - Copy the RHEL 7.1 DVD as-is, the filename should be -  
+3. `chcon -Rt svirt_sandbox_file_t path` - Set the SELinux context on the folder.
 
-### Container Execution and Image Build
+## Container Execution and Image Build
 
 To execute a virtual machine and Packer in the container the following required options need to be set:
 - [Privileged mode](https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-and-lxc-configuration) (`--privileged=true`)

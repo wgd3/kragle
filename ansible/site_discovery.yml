@@ -18,8 +18,14 @@
       get_url:
         url: "{{ hnl_mk_source }}{{ hnl_mk_image }}"
         dest: "{{ hnl_mk_local_path }}"
-      when: not hnl_mk.stat.exists
+      when: not hnl_mk.stat.exists and not offline
 
+    - name: Copy Hanlon Microkernel to /opt/hanlon/image
+      copy:
+        src: "{{ hnl_offline_mk_source }}{{ hnl_mk_image }}"
+        dest: "{{ hnl_mk_local_path }}"
+      when: offline
+      
     - name: Add a Microkernel Image to Hanlon
       hanlon_image:
         base_url: "{{ hanlon_base_url }}"

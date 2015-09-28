@@ -27,6 +27,14 @@
     name: docker-py
     state: present
     extra_args: "--upgrade"
+    when: not offline
+
+- name: install docker-py when offline
+  pip:
+    name: docker-py
+    state: present
+    extra_args: "--index-url=file://{{ py_offline_pkgs }}simple/"
+  when: offline
 
 - name: create .ssh directory
   file:
@@ -105,6 +113,7 @@
     method: GET
   with_items: git_repos
   register: tags
+  when: not offline
 
 - name: clone repos from git
   git:
@@ -114,3 +123,4 @@
     version: "{{ item.json[0].name }}"
   ignore_errors: true
   with_items: tags.results
+  when: not offline

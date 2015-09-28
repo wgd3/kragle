@@ -24,7 +24,8 @@
       copy:
         src: "{{ hnl_offline_mk_source }}{{ hnl_mk_image }}"
         dest: "{{ hnl_mk_local_path }}"
-
+      when: offline
+      
     - name: Add a Microkernel Image to Hanlon
       hanlon_image:
         base_url: "{{ hanlon_base_url }}"

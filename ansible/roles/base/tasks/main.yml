@@ -21,6 +21,9 @@
     - sshpass
     - vim
     - wget
+    - httpd
+    - createrepo
+    - yum-utils
 
 - name: install docker-py
   pip:

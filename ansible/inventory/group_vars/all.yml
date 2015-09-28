@@ -1,4 +1,9 @@
 ---
+#Offline Kragle vars
+offline: true
+py_offline_pkgs: /mnt/sdb/packages/
+hnl_offline_mk_source: /root/ISO/
+
 #Kragle common vars
 auto_deploy_node: 172.17.16.10
 hanlon_base_url: http://{{ auto_deploy_node }}:8026/hanlon/api/v1/

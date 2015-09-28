@@ -12,11 +12,6 @@
 - name: createrepo
   command: createrepo "/var/www/html/{{ repo_name }}"
 
-- name: ensure that directory for .repo file exsist
-  file:
-    dest: "{{repofile_location}}"
-    state: directory
-
 - name: repofile to provide to node
   template:
     src: repo_template.repo.j2

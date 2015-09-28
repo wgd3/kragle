@@ -4,11 +4,5 @@
   gather_facts: true
   roles:
     - base
-
-- name: create offline repo
-  hosts: all
-  gather_facts: true
-  roles:
-    - createrepo
-  when: offline
+    - { role: createrepo, when: offline}
   

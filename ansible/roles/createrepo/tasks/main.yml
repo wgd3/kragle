@@ -1,0 +1,24 @@
+---
+- name: create repo directory for httpd
+  file:
+    path: "/var/www/html/{{ repo_name }}"
+    state: directory
+
+- name: copy repo files to http directory
+  copy:
+    src: "{{ rpm_source_directory }}/"
+    dest: "/var/www/html/{{ repo_name }}"
+
+- name: createrepo
+  command: createrepo "/var/www/html/{{ repo_name }}"
+
+- name: repofile to provide to node
+  template:
+    src: repo_template.repo.j2
+    dest: "/var/www/html/offline.repo"
+
+- name: start httpd
+  service:
+    name: httpd
+    state: restarted
+    enabled: yes

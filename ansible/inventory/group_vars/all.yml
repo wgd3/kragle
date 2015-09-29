@@ -28,4 +28,5 @@ git_repos:
   - { name: "kragle", repo: "git://github.com/csc/kragle", tag: "https://api.github.com/repos/csc/kragle/tags" }
   - { name: "ansible-scaleio", repo: "git://github.com/csc/ansible-scaleio", tag: "https://api.github.com/repos/csc/ansible-scaleio/tags" }
 
-
+repo_name: "offline_repo_directory_name"
+rpm_source_directory: "/root/rpm_files"

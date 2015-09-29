@@ -16,3 +16,9 @@
   template:
     src: repo_template.repo.j2
     dest: "/var/www/html/offline.repo"
+
+- name: start httpd
+  service:
+    name: httpd
+    state: restarted
+

@@ -1,8 +1,10 @@
 ---
 #Offline Kragle vars
 offline: true
-py_offline_pkgs: /mnt/sdb/packages/
+py_offline_pkgs: /root/packages/
 hnl_offline_mk_source: /root/ISO/
+repo_name: "offline_repo_directory_name"
+rpm_source_directory: "/root/rpms"
 
 #Kragle common vars
 auto_deploy_node: 172.17.16.10
@@ -28,5 +30,3 @@ git_repos:
   - { name: "kragle", repo: "git://github.com/csc/kragle", tag: "https://api.github.com/repos/csc/kragle/tags" }
   - { name: "ansible-scaleio", repo: "git://github.com/csc/ansible-scaleio", tag: "https://api.github.com/repos/csc/ansible-scaleio/tags" }
 
-repo_name: "offline_repo_directory_name"
-rpm_source_directory: "/root/rpm_files"
